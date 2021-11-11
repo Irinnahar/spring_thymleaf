@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Customer enrollment process</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+	<div class="container text-center ">
+		<div class="card m-5">
+			<h2 class="p-3">Payment procedure</h2>
+
+			<div class="d-flex justify-content-center">
+				<div class="col-8 card m-3 p-3 text-left">
+					<h4 class="text-center mb-3">The program you have selected</h4>
+					<div class=" d-flex ">
+						<h6 class="col-6">Code:</h6>
+						<h6 class="col-4" th:text="${id}">id</h6>
+					</div>
+					<div class="d-flex">
+						<h6 class="col-6">Name:</h6>
+						<h6 class="col-6" th:text="${name}">name</h6>
+					</div>
+					<div class="d-flex">
+						<h6 class="col-6">Duration:</h6>
+						<h6 class="col-6" th:text="${duration}+ ' ' + Months">duration</h6>
+					</div>
+					<div class="d-flex">
+						<h6 class="col-6">Fees:</h6>
+						<h6 class="col-6" th:text="${fee}+ ' '+ CAD">fee</h6>
+					</div>
+					<div class="d-flex">
+						<h6 class="col-6">Start Date:</h6>
+						<h6 class="col-6" th:text="${date}">date</h6>
+					</div>
+				</div>
+			</div>
+			<div class="d-flex justify-content-center">
+				<div class="card p-5 m-5 col-8">
+					<h4>Add Your Payment Method</h4>
+					<form class="text-left" th:action="@{/enrollment}" method="post"
+						th:object="${enrollmentForm}">
+						<div class="m-3">
+							<div class="form-group row">
+									<input type="text" th:name="startDate" th:value="${date}" class="form-control" readonly />
+							</div>
+							<div class="form-group row">
+								<input type="text" th:name="programId" th:value="${id}" class="form-control"  readonly/>
+							</div>
+							<div class="form-group row">
+								<input type="text" th:name="status" class="form-control" th:value="enrolled" readonly/>
+							</div>
+							<div class="form-group row">
+								<label class="col-4 col-form-label">First Name: </label>
+								<div class="col-8">
+									<input type="text" th:field="*{cardFirstName}" class="form-control"
+										required/>
+								</div>
+							</div>
+			
+							<div class="form-group row">
+								<label class="col-4 col-form-label">Last Name: </label>
+								<div class="col-8">
+									<input type="text" th:field="*{cardLastName}" class="form-control"
+										required minlength="2" maxlength="20" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-4 col-form-label">Card Number: </label>
+								<div class="col-8">
+									<input type="text" th:field="*{cardNumber}" class="form-control"
+										required minlength="10" maxlength="10" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-4 col-form-label">Card CVV: </label>
+								<div class="col-8">
+									<input type="text" th:field="*{cardCvv}" class="form-control"
+										required minlength="2" maxlength="20" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-4 col-form-label">Expire Date: </label>
+								<div class="col-8">
+									<input type="text" th:field="*{cardExpireDate}" class="form-control"
+										required minlength="2" maxlength="20" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-4 col-form-label">Amount: </label>
+								<div class="col-8">
+									<input type="text" th:name="amountPaid" class="form-control" required th:value="${fee}" readonly />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-4 col-form-label"> </label>
+								<div class="col-8">
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
