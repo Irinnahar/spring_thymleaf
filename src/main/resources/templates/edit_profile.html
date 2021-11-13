@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Customer enrollment process</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:replace="header :: navbar"></div>
+
+	<div class="container text-center m-5">
+		<div>
+			<h1 class="p-3">Edit Student Details</h1>
+		</div>
+		<form class="text-left" th:action="@{/success_edit_details}"
+			th:object="${student}" method="post">
+			<div class="m-3 col-10">
+				<div class="form-group row">
+					<label class="col-4 col-form-label">Id: </label>
+					<div class="col-8">
+						<input readonly type="text" th:field="*{studentId}" class="form-control"/>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-4 col-form-label">First Name: </label>
+					<div class="col-8">
+						<input type="text" th:field="*{firstName}" class="form-control"
+							required minlength="2" maxlength="20" />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-4 col-form-label">Last Name: </label>
+					<div class="col-8">
+						<input type="text" th:field="*{lastName}" class="form-control"
+							required minlength="2" maxlength="20" />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-4 col-form-label">Email: </label>
+					<div class="col-8">
+						<input type="text" th:field="*{email}" class="form-control"
+							minlength="2" maxlength="20" required />
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-4 col-form-label">Address: </label>
+					<div class="col-8">
+						<input type="text" th:field="*{address}" class="form-control"
+							required minlength="2" maxlength="20" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-4 col-form-label">City: </label>
+					<div class="col-8">
+						<input type="text" th:field="*{city}" class="form-control"
+							required minlength="2" maxlength="20" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-4 col-form-label">Postal Code: </label>
+					<div class="col-8">
+						<input type="text" th:field="*{postalCode}" class="form-control"
+							required minlength="2" maxlength="20" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-4 col-form-label">Phone: </label>
+					<div class="col-8">
+						<input type="text" th:field="*{phone}" class="form-control"
+							required minlength="11" maxlength="11" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-4 col-form-label">Password: </label>
+					<div class="col-8">
+						<input type="password" th:field="*{password}" class="form-control"
+							required minlength="6" maxlength="10" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-4 col-form-label"> </label>
+					<div class="col-8">
+						<button type="submit" class="btn btn-primary">Edit</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

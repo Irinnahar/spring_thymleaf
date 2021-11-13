@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Customer enrollment process</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+	<div th:replace="header :: navbar"></div>
+	<div class="container text-center card mt-5 mb-5">
+		<h2 class="p-3 mt-5 mb-3">Student's Details</h2>
+		<div class=" text-right">
+			<a class="btn btn-sm btn-outline-primary col-3 mr-5"
+				th:href="@{'/editprofile/' + ${student.studentId}}"> Edit Profile
+			</a>
+		</div>
+		<div class="d-flex justify-content-center flex-wrap mb-5">
+			<div class="col-8 card m-3 p-3">
+				<div class="row text-left mb-3">
+					<h6 class="col-6">First Name:</h6>
+					<h6 class="col-6" th:text="${student.firstName}"></h6>
+
+				</div>
+				<div class="row text-left mb-3">
+					<h6 class="col-6">Last Name:</h6>
+					<h6 class="col-6" th:text="${student.lastName}"></h6>
+
+				</div>
+				<div class="row text-left mb-3">
+					<h6 class="col-6">Email:</h6>
+					<h6 class="col-6" th:text="${student.email}"></h6>
+
+				</div>
+				<div class="row text-left mb-3">
+					<h6 class="col-6">Address:</h6>
+					<h6 class="col-6" th:text="${student.address}"></h6>
+				</div>
+				<div class="row text-left mb-3">
+					<h6 class="col-6">Phone:</h6>
+					<h6 class="col-6" th:text="${student.phone}"></h6>
+				</div>
+				<div class="row text-left mb-3">
+					<h6 class="col-6">City:</h6>
+					<h6 class="col-6" th:text="${student.city}"></h6>
+				</div>
+				<div class="row text-left mb-3">
+					<h6 class="col-6">Postal Code:</h6>
+					<h6 class="col-6" th:text="${student.postalCode}"></h6>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
